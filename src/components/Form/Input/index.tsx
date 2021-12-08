@@ -5,10 +5,20 @@ import {
     Container
 } from './styles';
 
-type props = TextInputProps;
+// type props = TextInputProps;
 
-export function Input({...rest} : props) {
-    return(
-        <Container {...rest}/>
+interface Props extends TextInputProps {
+    active?: boolean;
+};
+
+export function Input({
+    active = false,
+    ...rest
+}: Props) {
+    return (
+        <Container
+            active={active}
+            {...rest}
+        />
     );
 }

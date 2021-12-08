@@ -14,7 +14,7 @@ import {
 import { Button } from '../../components/Form/Button'
 
 import { Props, ICategory } from './interfaces';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList } from 'react-native';
 import { categories } from '../../utils/categories';
 
 
