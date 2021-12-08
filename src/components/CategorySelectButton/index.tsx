@@ -10,14 +10,16 @@ import { Props } from './interfaces';
 
 export function CategorySelectButton({
     title,
-    onPress
+    onPress,
+    testID
 }: Props) {
     return (
-        <Container 
+        <Container
+            testID={testID}
             onPress={onPress}
         >
             <Category>{title}</Category>
-            <Icon name="chevron-down"/>
+            <Icon name="chevron-down" />
         </Container>
     );
 }
