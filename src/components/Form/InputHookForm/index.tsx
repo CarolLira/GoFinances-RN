@@ -5,12 +5,14 @@ import { Input } from '../Input';
 import { Props } from './interfaces';
 
 import {
-    Container
+    Container,
+    Error
 } from './styles';
 
 export function InputHookForm({
     control,
     name,
+    error,
     ...rest
 }: Props) {
     return (
@@ -18,14 +20,15 @@ export function InputHookForm({
             <Controller
                 name={name}
                 control={control}
-                render={({ field: { onChange, value }}) => (
-                    <Input 
+                render={({ field: { onChange, value } }) => (
+                    <Input
                         onChangeText={onChange}
                         value={value}
                         {...rest}
                     />
                 )}
             />
+            {error && <Error>{error}</Error>}
         </Container>
     );
 }
