@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input (component) should have specific border color when active 1`] = `
+<TextInput
+  allowFontScaling={true}
+  autoCorrect={false}
+  keyboardType="email-address"
+  placeholder="E-mail"
+  rejectResponderTermination={true}
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#FFFFFF",
+        "borderRadius": 5,
+        "color": "#000000",
+        "fontFamily": "Poppins_400Regular",
+        "fontSize": 27,
+        "marginBottom": 8,
+        "paddingBottom": 16,
+        "paddingLeft": 18,
+        "paddingRight": 18,
+        "paddingTop": 16,
+        "width": "100%",
+      },
+    ]
+  }
+  testID="input-email"
+  underlineColorAndroid="transparent"
+/>
+`;
