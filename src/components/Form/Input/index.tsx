@@ -1,23 +1,16 @@
 import React from 'react';
-import { TextInputProps } from 'react-native';
 
 import {
     Container
 } from './styles';
 
-// type props = TextInputProps;
-
-interface Props extends TextInputProps {
-    active?: boolean;
-};
+import { Props } from './interfaces';
 
 export function Input({
-    active = false,
     ...rest
 }: Props) {
     return (
         <Container
-            active={active}
             {...rest}
         />
     );
