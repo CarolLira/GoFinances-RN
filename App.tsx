@@ -5,6 +5,9 @@ import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 import theme from './src/global/styles/theme';
 
+import { NavigationContainer } from '@react-navigation/native';
+import { AppRoutes } from './src/routes/app.routes';
+
 import {
   useFonts,
   Poppins_400Regular,
@@ -20,14 +23,16 @@ export default function App() {
     Poppins_500Medium,
     Poppins_700Bold
   });
-  
+
   if (!fontsLoaded) {
-    return <AppLoading/>;
+    return <AppLoading />;
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <Register />
+      <NavigationContainer>
+        <AppRoutes />
+      </NavigationContainer>
     </ThemeProvider>
   );
 }
