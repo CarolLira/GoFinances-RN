@@ -2,6 +2,7 @@ import React from 'react';
 
 import {
     Container,
+    Button,
     Icon,
     Title
 } from './styles';
@@ -15,18 +16,21 @@ const icons = {
 
 export function TransactionTypeButton({ title, type, isActive, ...rest }: Props) {
     return (
-        <Container 
+        <Container
             type={type}
             isActive={isActive}
-            {...rest}
+        >
+            <Button
+                {...rest}
             >
-            <Icon
-                name={icons[type]}
-                type={type}
-            />
-            <Title>
-                {title}
-            </Title>
+                <Icon
+                    name={icons[type]}
+                    type={type}
+                />
+                <Title>
+                    {title}
+                </Title>
+            </Button>
         </Container>
     );
 }
