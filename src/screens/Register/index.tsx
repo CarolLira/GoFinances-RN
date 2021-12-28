@@ -77,7 +77,7 @@ export function Register() {
             return Alert.alert('Selecione a categoria');
         }
 
-        const data = {
+        const newTransaction = {
             name: form.name,
             amount: form.amount,
             transactionType,
@@ -85,7 +85,15 @@ export function Register() {
         }
 
         try {
-            await AsyncStorage.setItem(dataKey, JSON.stringify(data));
+            const transactionData = await AsyncStorage.getItem(dataKey);
+            const currentData = transactionData ? JSON.parse(transactionData) : [];
+            
+            const dataFormatted = [
+                ...currentData,
+                newTransaction
+            ]
+            
+            await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
         } catch (error) {
             console.log(error);
             Alert.alert("Não foi possível salvar");
@@ -99,6 +107,12 @@ export function Register() {
             console.log(JSON.parse(transactionData!));
         }
         loadData();
+
+        // Limpa dados do storage
+        // async function removeAll() {
+        //     await AsyncStorage.removeItem(dataKey);
+        // }
+        // removeAll();
     }, [])
 
     return (
