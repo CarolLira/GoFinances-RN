@@ -1,3 +1,7 @@
+// No Android a biblioteca "intl" não está disponível, 
+// por isso é preciso adicioná-la nas dependências e importar
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
 import React from 'react';
 
 import AppLoading from 'expo-app-loading';
@@ -14,8 +18,6 @@ import {
   Poppins_500Medium,
   Poppins_700Bold
 } from '@expo-google-fonts/poppins'
-
-import { Register } from './src/screens/Register';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
