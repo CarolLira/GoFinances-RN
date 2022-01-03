@@ -1,5 +1,6 @@
 import React from 'react';
-import { ICardData, ITransactionCard } from './interfaces';
+import { categories } from '../../utils/categories';
+import { ITransactionCard } from './interfaces';
 
 import {
     Container,
@@ -13,9 +14,13 @@ import {
 } from './styles';
 
 export function TransactionCard({ data }: ITransactionCard) {
+    const [ category ] = categories.filter(
+        item => item.key === data.category
+    );
+
     return (
         <Container>
-            <Title>{data.title}</Title>
+            <Title>{data.name}</Title>
             <Amount
                 type={data.type}
             >
@@ -25,9 +30,9 @@ export function TransactionCard({ data }: ITransactionCard) {
             <Footer>
                 <Category>
                     <Icon
-                        name={data.category.icon}
+                        name={category.icon}
                     />
-                    <CategoryName>{data.category.name}</CategoryName>
+                    <CategoryName>{category.name}</CategoryName>
                 </Category>
                 <Date>{data.date}</Date>
             </Footer>
