@@ -13,4 +13,5 @@ export interface HighLightData {
 
 export interface HighLightProps {
     amount: string;
+    lastTransaction: string;
 }
