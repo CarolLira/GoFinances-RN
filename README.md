@@ -1,9 +1,9 @@
 # Projeto Go Finances (em progresso)
-<div align="center">
-    <img src="project.gif" width="400">
+<div>
+    <img src="project.gif" width="250">
 </div>
 
-## Link pro design do projeto do Figma
+## Link pro design do projeto no Figma
 
 https://www.figma.com/file/K62eGBJjgtkT6udeX4HP2b/GoFinances-Ignite
 
