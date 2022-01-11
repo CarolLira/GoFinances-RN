@@ -16,3 +16,9 @@ https://www.figma.com/file/K62eGBJjgtkT6udeX4HP2b/GoFinances-Ignite
 - [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/docs/)
 - [Styled Components](https://styled-components.com/)
 - [Jest](https://jestjs.io/pt-BR/)
+
+## Rodar localmente:
+- Instala dependências: yarn install
+- Expo: expo start (tenha instalado o app do expo no celular)
+- Emulador Android: yarn android
+- Emulador ios: yarn ios
