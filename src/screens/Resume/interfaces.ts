@@ -9,6 +9,8 @@ export interface TransactionData {
 export interface CategoryData {
     key: string;
     name: string;
-    total: string;
+    total: number;
+    totalFormatted: string;
     color: string;
+    percent: string;
 }
