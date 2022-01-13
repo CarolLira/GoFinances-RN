@@ -15,9 +15,11 @@ https://www.figma.com/file/K62eGBJjgtkT6udeX4HP2b/GoFinances-Ignite
 - [React Hook Form](https://react-hook-form.com/)
 - [React Native Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/docs/)
 - [React Navigation](https://reactnavigation.org/docs/getting-started/)
+- [React Native SVG Transformer](https://github.com/kristerkari/react-native-svg-transformer)
 - [Victory](https://formidable.com/open-source/victory/docs)
 - [Styled Components](https://styled-components.com/)
 - [Jest](https://jestjs.io/pt-BR/)
+
 
 ## Rodar localmente:
 - Instala dependências: yarn install
