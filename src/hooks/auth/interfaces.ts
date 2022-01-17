@@ -6,6 +6,7 @@ export interface AuthProviderProps {
 
 export interface IAuthContextData {
     user: User;
+    signInWithGoogle(): Promise<void>;
 }
 
 interface User {
