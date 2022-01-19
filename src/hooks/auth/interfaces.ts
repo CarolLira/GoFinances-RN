@@ -5,11 +5,18 @@ export interface AuthProviderProps {
 }
 
 export interface IAuthContextData {
-    user: User;
+    user: User | undefined;
     signInWithGoogle(): Promise<void>;
 }
 
-interface User {
+export interface AuthorizationResponse {
+    params: {
+        access_token: string;
+    },
+    type: string;
+}
+
+export interface User {
     id: string;
     name: string;
     email: string;
