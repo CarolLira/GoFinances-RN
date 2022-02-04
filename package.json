@@ -4,7 +4,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "web": "expo start --web",
-    "start": "react-native start",
+    "start": "expo start --dev-client",
     "test": "jest",
     "test-all": "yarn jest --watchAll",
     "test-coverage": "yarn jest --coverage"
@@ -28,7 +28,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-hook-form": "^7.21.0",
-    "react-native": "0.63.4",
+    "react-native": "~0.63.4",
     "react-native-gesture-handler": "~1.10.2",
     "react-native-iphone-x-helper": "^1.3.1",
     "react-native-reanimated": "~2.2.0",
@@ -58,5 +58,7 @@
     "ts-jest": "^27.1.1",
     "typescript": "~4.0.0"
   },
-  "private": true
+  "private": true,
+  "name": "GoFinances-RN",
+  "version": "1.0.0"
 }

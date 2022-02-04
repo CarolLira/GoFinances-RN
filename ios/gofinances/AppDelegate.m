@@ -19,10 +19,6 @@
 #import <SKIOSNetworkPlugin/SKIOSNetworkAdapter.h>
 #import <FlipperKitReactPlugin/FlipperKitReactPlugin.h>
 
-#import <React/RCTLinkingManager.h>
-
-
-
 static void InitializeFlipper(UIApplication *application) {
   FlipperClient *client = [FlipperClient sharedClient];
   SKDescriptorMapper *layoutDescriptorMapper = [[SKDescriptorMapper alloc] initWithDefaults];
@@ -101,12 +97,8 @@ static void InitializeFlipper(UIApplication *application) {
 }
 
 // Linking API
-
-// iOS 9.x or newer
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    return [RCTLinkingManager application:application openURL:url options:options];
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+  return [RCTLinkingManager application:application openURL:url options:options];
 }
 
 // Universal Links
