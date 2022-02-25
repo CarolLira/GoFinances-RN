@@ -7,6 +7,7 @@ export interface AuthProviderProps {
 export interface IAuthContextData {
     user: User | undefined;
     signInWithGoogle(): Promise<void>;
+    signInWithApple(): Promise<void>;
 }
 
 export interface AuthorizationResponse {
@@ -19,7 +20,7 @@ export interface AuthorizationResponse {
 export interface User {
     id: string;
     name: string;
-    email: string;
+    email: string | null;
     photo?: string;
 }
 

@@ -8,8 +8,10 @@ const { CLIENT_ID } = process.env;
 const { REDIRECT_URI } = process.env;
 
 import * as AuthSession from 'expo-auth-session';
+import * as AppleAuthentication from 'expo-apple-authentication';
 
 import { AuthProviderProps, IAuthContextData, AuthorizationResponse, User } from "./interfaces";
+import { AsyncStorage } from "react-native";
 
 const AuthContext = createContext({} as IAuthContextData);
 
@@ -42,10 +44,36 @@ function AuthProvider({ children }: AuthProviderProps) {
         }
     }
 
+    async function signInWithApple() {
+        try {
+            const credential = await AppleAuthentication.signInAsync({
+                requestedScopes: [
+                    AppleAuthentication.AppleAuthenticationScope.FULL_NAME,
+                    AppleAuthentication.AppleAuthenticationScope.EMAIL,
+                ]
+            });
+
+            if (credential) {
+                const userLogged = {
+                    id: String(credential.user),
+                    email: credential.email,
+                    name: credential.fullName!.givenName!,
+                    photo: undefined
+                };
+                setUser(userLogged);
+                await AsyncStorage.setItem('@gofinances:user', JSON.stringify(userLogged));
+            }
+
+        } catch (error: any) {
+            throw new Error(error);
+        }
+    }
+
     return (
         <AuthContext.Provider value={{
             user,
-            signInWithGoogle
+            signInWithGoogle,
+            signInWithApple
         }}>
             {children}
         </AuthContext.Provider>
