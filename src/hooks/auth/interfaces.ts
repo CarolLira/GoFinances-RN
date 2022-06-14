@@ -8,6 +8,8 @@ export interface IAuthContextData {
     user: User | undefined;
     signInWithGoogle(): Promise<void>;
     signInWithApple(): Promise<void>;
+    signOut(): Promise<void>;
+    userStorageLoading: boolean;
 }
 
 export interface AuthorizationResponse {
