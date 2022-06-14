@@ -10,7 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from './src/global/styles/theme';
 
 import { Routes } from './src/routes';
-import { AuthProvider } from './src/hooks/auth';
+import { AuthProvider, useAuth } from './src/hooks/auth';
 
 import {
   useFonts,
@@ -26,7 +26,9 @@ export default function App() {
     Poppins_700Bold
   });
 
-  if (!fontsLoaded) {
+  const { userStorageLoading } = useAuth();
+
+  if (!fontsLoaded || userStorageLoading) {
     return <AppLoading />;
   }
 
