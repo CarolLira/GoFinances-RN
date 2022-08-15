@@ -3,6 +3,7 @@ import AsyncStorage from "@react-native-community/async-storage";
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from "react-hook-form";
+import { useAuth } from "../../hooks/auth";
 import uuid from 'react-native-uuid';
 import { useNavigation } from '@react-navigation/native';
 
@@ -45,6 +46,7 @@ export function Register() {
     const navigation = useNavigation();
     const [transactionType, setTransactionType] = useState('');
     const [categoryModalOpen, setCategoryModalOpen] = useState(false);
+    const {user} = useAuth();
 
     const [category, setCategory] = useState({
         key: 'category',
@@ -90,7 +92,7 @@ export function Register() {
         }
 
         try {
-            const dataKey = '@gofinances:transactions';
+            const dataKey = `@gofinances:transactions_user:${user?.id}`;
             const transactionData = await AsyncStorage.getItem(dataKey);
             const currentData = transactionData ? JSON.parse(transactionData) : [];
             
