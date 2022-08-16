@@ -38,7 +38,11 @@ export function Dashboard() {
         collection: IListData[],
         type: "positive" | "negative"
     ) {
-        const lastTransaction = new Date(Math.max.apply(Math, collection
+        const collectionFiltered = collection.filter(transaction => transaction.type === type);
+
+        if (collectionFiltered.length === 0) return 0;
+
+        const lastTransaction = new Date(Math.max.apply(Math, collectionFiltered
             .filter(transaction => transaction.type === type)
             .map(transaction => new Date(transaction.date).getTime())));
 
@@ -85,7 +89,9 @@ export function Dashboard() {
         setTransactions(transactionsFormatted);
         const lastTransactionsEntries = getLastTransactionDate(transactions, "positive");
         const lastTransactionsExpensives = getLastTransactionDate(transactions, "negative");
-        const totalInterval = `01 a ${lastTransactionsExpensives}`;
+        const totalInterval = lastTransactionsExpensives === 0
+        ? 'Não há transações'
+        : `01 a ${lastTransactionsExpensives}`;
 
         const total = entriesTotal - expensiveTotal;
 
@@ -95,14 +101,18 @@ export function Dashboard() {
                     style: 'currency',
                     currency: 'BRL'
                 }),
-                lastTransaction: `Última entrada dia ${lastTransactionsEntries}`,
+                lastTransaction: lastTransactionsEntries === 0 
+                ? 'Não há transações' 
+                : `Última entrada dia ${lastTransactionsEntries}`,
             },
             expensives: {
                 amount: expensiveTotal.toLocaleString('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
                 }),
-                lastTransaction: `Última saída dia ${lastTransactionsExpensives}`,
+                lastTransaction: lastTransactionsExpensives === 0
+                ? 'Não há transações' 
+                :`Última saída dia ${lastTransactionsExpensives}`,
             },
             total: {
                 amount: total.toLocaleString('pt-BR', {
